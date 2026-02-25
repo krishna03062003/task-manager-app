@@ -24,9 +24,15 @@ app.use(cookieParser());
 
 
 const allowedOrigins = [
-  "http://localhost:5173",
+ "http://localhost:5173",
+
+  // OLD
   "https://task-manager-app-taupe-seven.vercel.app",
-  "https://task-manager-b8mgtqp5a-krishnas-projects-bd96c90f.vercel.app"
+
+  // NEW VERCEL DEPLOYMENTS ✅
+  "https://task-manager-app-krishnas-projects-bd96c90f.vercel.app",
+  "https://task-manager-app-git-main-krishnas-projects-bd96c90f.vercel.app",
+  "https://task-manager-mugznh636-krishnas-projects-bd96c90f.vercel.app"
 ];
 
 app.use(
