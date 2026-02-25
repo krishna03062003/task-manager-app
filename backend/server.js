@@ -22,9 +22,22 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://task-manager-app-taupe-seven.vercel.app",
+  "https://task-manager-b8mgtqp5a-krishnas-projects-bd96c90f.vercel.app"
+];
+
 app.use(
   cors({
-    origin: process.env.CLIENT_URL ,
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
